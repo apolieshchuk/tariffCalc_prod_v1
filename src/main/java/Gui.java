@@ -14,7 +14,7 @@ public class Gui extends JFrame implements ActionListener {
     private TariffCalc calc;
     private JCheckBox checkCircle, non_cashCheckBox;
     private JButton changeTariffBut,settingsBut ;
-    private JPanel topPanel,centerPanel, botPanel;
+    private JPanel leftPanel,rightPanel;
 
 
     Gui() throws IOException {
@@ -22,20 +22,28 @@ public class Gui extends JFrame implements ActionListener {
         super("Тариф на перевозку");
         calc = new TariffCalc(1,25,true, 1,false);
 
-        createTopPanel();
-        createCenterPanel();
-        createBotPanel();
+        createLeftPanel();
+        createRightPanel();
+
+
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // чтобы процесс завершался после закрытия окна
         setSize(550,400);
         setLocationRelativeTo(null); // screen on center
     }
 
+    private void createLeftPanel() {
+        leftPanel = new JPanel();
+        leftPanel.setLayout(new BoxLayout(leftPanel,BoxLayout.Y_AXIS));
+        add(BorderLayout.NORTH, leftPanel);
+
+
+
+    }
+
 
     private void createTopPanel() {
 
-        topPanel = new JPanel();
-        add(BorderLayout.NORTH, topPanel);
 
         // создаем доп. панели
         JPanel topPanelLeft = new JPanel();
